@@ -16,8 +16,8 @@ If `directory` parameter unspecified or specified incorrect, using `current work
 ## Realisation progress
  - [x] Basic application
  - [ ] Auto download binaries
- - [ ] Basic integration with ZMake
- - [ ] Project initiation
+ - [x] Basic integration with ZMake
+ - [x] Project initiation
  - [ ] Project compilation
  - [ ] Project preprocessing with ESBuild (with zmake)
  - [ ] Basic integration with zepp-player 
