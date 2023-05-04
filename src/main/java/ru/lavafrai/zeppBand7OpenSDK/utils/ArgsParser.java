@@ -1,4 +1,7 @@
-package ru.lavafrai.zeppBand7OpenSDK;
+package ru.lavafrai.zeppBand7OpenSDK.utils;
+
+import ru.lavafrai.zeppBand7OpenSDK.Target;
+import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
 import java.io.File;
 

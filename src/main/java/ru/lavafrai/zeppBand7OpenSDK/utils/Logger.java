@@ -1,4 +1,4 @@
-package ru.lavafrai.zeppBand7OpenSDK;
+package ru.lavafrai.zeppBand7OpenSDK.utils;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;

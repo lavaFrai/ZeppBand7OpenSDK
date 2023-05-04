@@ -1,5 +1,9 @@
 package ru.lavafrai.zeppBand7OpenSDK;
 
+import ru.lavafrai.zeppBand7OpenSDK.utils.ArgsParser;
+import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
+import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
+
 public class ZeppBand7OpenSDK {
     Target currentTarget;
     java.util.logging.Logger logger = Logger.getInstance();
@@ -40,9 +44,18 @@ public class ZeppBand7OpenSDK {
         logger.info("Looking for zmake...");
         if (!ZMake.isAvailable()) {
             logger.warning("zmake undetected [ERROR]");
+            return;
         } else {
-            logger.warning("zmake detected [OK]");
+            logger.info("zmake detected [OK]");
         }
+
+        if (!FSHelper.isDirectoryEmpty(projectPath)) {
+            logger.warning("Project directory must be empty! [ERROR]");
+            return;
+        }
+
+        ZMake.initProject(projectPath);
+        logger.info("Project initialized in " + projectPath);
     }
 
     void printHelp() {
