@@ -4,11 +4,14 @@ import ru.lavafrai.zeppBand7OpenSDK.utils.ArgsParser;
 import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
 import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
+import java.io.IOException;
+
 public class ZeppBand7OpenSDK {
     Target currentTarget;
     java.util.logging.Logger logger = Logger.getInstance();
 
     public ZeppBand7OpenSDK(String[] args) {
+
         Logger.getInstance().info("Starting ZeppBand7OpenSDK by. lava_frai");
         currentTarget = ArgsParser.getTarget(args);
 
@@ -44,7 +47,7 @@ public class ZeppBand7OpenSDK {
         logger.info("Looking for zmake...");
         if (!ZMake.isAvailable()) {
             logger.warning("zmake undetected [ERROR]");
-            return;
+            ZMake.downloadZMake();
         } else {
             logger.info("zmake detected [OK]");
         }
@@ -62,7 +65,7 @@ public class ZeppBand7OpenSDK {
         System.out.println("\n\nShowing help for ZeppBand7OpenSDK:");
         System.out.println("zb7o-sdk [target]\n");
         System.out.println("Targets:");
-        System.out.println("\ti [directory] - (Not realized yet) INIT generate new project template inside this directory.");
+        System.out.println("\ti [directory] - INIT generate new project template inside this directory.");
         System.out.println("\tb [directory?] - (Not realized yet) BUILD build your project. Result file will appear in dist directory.");
         System.out.println("\tr [directory?] - (Not realized yet) RUN build your project and run built application in emulator.");
         System.out.println("\td [.bin file] - (Not realized yet) DECOMPILE unpack .bin of application into current directory.");

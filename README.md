@@ -15,7 +15,7 @@ Actually ***Zepp Band7 OpenSDK*** is just a wrapper over [Zmake](https://melianm
 If `directory` parameter unspecified or specified incorrect, using `current working directory`. Be careful.
 ## Realisation progress
  - [x] Basic application
- - [ ] Auto download binaries
+ - [x] Auto download binaries
  - [x] Basic integration with ZMake
  - [x] Project initiation
  - [ ] Project compilation

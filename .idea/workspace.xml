@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="Readme mistake fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="ZMake static">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ZeppBand7OpenSDK_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ZeppBand7OpenSDK_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ArgsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/ArgsParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,23 +72,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/PROJECTS/ZeppBand7OpenSDK/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Run">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
@@ -163,7 +164,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683193941463</updated>
       <workItem from="1683193942863" duration="9161000" />
-      <workItem from="1683222751480" duration="5968000" />
+      <workItem from="1683222751480" duration="10240000" />
     </task>
     <task id="LOCAL-00001" summary="MVP">
       <created>1683203276092</created>
@@ -179,7 +180,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683203364281</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Project initiation">
+      <created>1683237282103</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683237282103</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Readme update">
+      <created>1683237305788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683237305788</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ZMake static">
+      <created>1683237398258</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683237398258</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +221,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVP" />
     <MESSAGE value="Readme mistake fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme mistake fix" />
+    <MESSAGE value="Project initiation" />
+    <MESSAGE value="Readme update" />
+    <MESSAGE value="ZMake static" />
+    <option name="LAST_COMMIT_MESSAGE" value="ZMake static" />
   </component>
 </project>

@@ -1,10 +1,14 @@
 package ru.lavafrai.zeppBand7OpenSDK;
 
+import net.lingala.zip4j.ZipFile;
+import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
+import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
+
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.Collection;
+import java.nio.file.Files;
 
 public class ZMake {
+    static boolean localZMake = false;
     private String[] processArgs;
     private final Process process;
     BufferedReader reader;
@@ -13,7 +17,10 @@ public class ZMake {
     ZMake(String[] processArgs) {
         this.processArgs = processArgs;
 
-        ProcessBuilder processBuilder = new ProcessBuilder("zmake", String.join(" ", processArgs));
+        ProcessBuilder processBuilder;
+        if (localZMake) processBuilder = new ProcessBuilder(".cache/zmake", String.join(" ", processArgs));
+        else processBuilder = new ProcessBuilder("zmake", String.join(" ", processArgs));
+
         processBuilder.redirectErrorStream(true);
         // processBuilder.inheritIO();
 
@@ -28,8 +35,8 @@ public class ZMake {
 
     }
 
-    static boolean isAvailable() {
-        ProcessBuilder pb = new ProcessBuilder("zmake");
+    static boolean isAvailableFromCache() {
+        ProcessBuilder pb = new ProcessBuilder(".cache/zmake.exe");
         try {
             Process process = pb.start();
             process.destroy();
@@ -37,14 +44,39 @@ public class ZMake {
             return false;
         }
 
+        Logger.getInstance().info("Running ZMake portable");
+        localZMake = true;
         return true;
     }
 
-    static void downloadZMake() {
-        // ToDo: ZMake auto downloading
+    static boolean isAvailable() {
+        ProcessBuilder pb = new ProcessBuilder("zmake");
+        try {
+            Process process = pb.start();
+            process.destroy();
+        } catch (IOException e) {
+            return isAvailableFromCache();
+        }
+
+        return true;
     }
 
-    public static boolean initProject(String projectPath) { // Project path must be empty!
+    public static void downloadZMake() {
+        if (!new File("zmake.zip").exists()) FSHelper.downloadFile("https://raw.githubusercontent.com/lavaFrai/ZeppBand7OpenSDK/master/static/zmake.zip", "zmake.zip");
+
+        try (
+                ZipFile zipFile = new ZipFile("zmake.zip")
+        ) {
+            zipFile.extractAll(".cache");
+            Files.deleteIfExists(new File("zmake.zip").toPath());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        localZMake = true;
+    }
+
+    public static void initProject(String projectPath) { // Project path must be empty!
         ZMake session = openSession(new String[] {projectPath} );
         int resultCode;
 
@@ -61,7 +93,6 @@ public class ZMake {
 
         if (resultCode != 0) throw new RuntimeException("ZMake returns non zero non-zero code");
 
-        return true;
     }
 
     private static ZMake openSession(String[] processArgs) {
