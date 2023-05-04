@@ -3,7 +3,7 @@
 Actually ***Zepp Band7 OpenSDK*** is just a wrapper over [Zmake](https://melianmiko.ru/en/zmake/guide/) and [zepp_player](https://melianmiko.ru/en/zepp_player) but downloading them binaries automatically and making comfortable integration between them.
 
 ## Usage
-1. Download the [latest binaries](https://github.com/lavafrai/zeppBand7_openSdk/releases/latest/)
+1. Download the [latest binaries](https://github.com/lavafrai/zeppBand7openSdk/releases/latest/)
 2. Run application `java -jar zb7o-sdk.jar [Target]`
 
 #### Possible targets:

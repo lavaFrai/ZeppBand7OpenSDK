@@ -9,29 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ZeppBand7OpenSDK_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ArgsParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Target.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" afterDir="false" />
+    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="MVP">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,8 +156,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683193941463</updated>
-      <workItem from="1683193942863" duration="8894000" />
+      <workItem from="1683193942863" duration="9075000" />
     </task>
+    <task id="LOCAL-00001" summary="MVP">
+      <created>1683203276092</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683203276092</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,5 +181,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="MVP" />
+    <option name="LAST_COMMIT_MESSAGE" value="MVP" />
   </component>
 </project>
