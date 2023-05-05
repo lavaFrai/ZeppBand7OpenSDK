@@ -24,8 +24,12 @@ public class ZeppBand7OpenSDK {
                 buildProject(ArgsParser.getDirPath(args));
                 break;
             case BUILD_AND_RUN:
+                ZeppPlayer.stopIfRunning();
                 buildProject(ArgsParser.getDirPath(args));
                 runProject(ArgsParser.getDirPath(args));
+                break;
+            case STOP:
+                ZeppPlayer.stopIfRunning();
                 break;
             case DECOMPILE:
                 decompileProject("");
@@ -38,6 +42,7 @@ public class ZeppBand7OpenSDK {
 
     private void runProject(String projectPath) {
         ZeppPlayer.zeppPlayerSelfCheck();
+        ZeppPlayer.runProject(projectPath);
 
     }
 
@@ -67,7 +72,8 @@ public class ZeppBand7OpenSDK {
         System.out.println("Targets:");
         System.out.println("\ti [directory?] - INIT generate new project template inside this directory.");
         System.out.println("\tb [directory?] - BUILD build your project. Result file will appear in dist directory.");
-        System.out.println("\tr [directory?] - (Not realized yet) RUN build your project and run built application in emulator.");
+        System.out.println("\tr [directory?] - RUN build your project and run built application in emulator.");
+        System.out.println("\ts - STOP Stopping already started emulation.");
         System.out.println("\td [.bin file] - (Not realized yet) DECOMPILE unpack .bin of application into current directory.");
     }
 }

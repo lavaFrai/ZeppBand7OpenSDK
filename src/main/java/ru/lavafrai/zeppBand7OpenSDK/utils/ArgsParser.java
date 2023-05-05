@@ -25,6 +25,10 @@ public class ArgsParser {
             case "run":
                 Logger.getInstance().info("DETECTED TARGET BUILD_AND_RUN");
                 return Target.BUILD_AND_RUN;
+            case "s":
+            case "stop":
+                Logger.getInstance().info("DETECTED TARGET STOP");
+                return Target.STOP;
             case "d":
                 Logger.getInstance().info("DETECTED TARGET DECOMPILE");
                 return Target.DECOMPILE;

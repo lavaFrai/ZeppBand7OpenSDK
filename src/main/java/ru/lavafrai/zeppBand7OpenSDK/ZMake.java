@@ -21,6 +21,7 @@ public class ZMake {
 
         processBuilder.redirectErrorStream(true);
         // processBuilder.inheritIO();
+        processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
         try {
             process = processBuilder.start();

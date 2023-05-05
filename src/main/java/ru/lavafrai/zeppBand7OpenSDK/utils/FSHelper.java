@@ -12,6 +12,9 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 
 public class FSHelper {
@@ -69,5 +72,60 @@ public class FSHelper {
             throw new IllegalArgumentException("Путь не является директорией");
         }
 
+    }
+
+    public static void removeDirectory(File directory) {
+        if (directory.exists()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        removeDirectory(file);
+                    } else {
+                        file.delete();
+                    }
+                }
+            }
+            directory.delete();
+        }
+    }
+
+    public static void clearDirectory(File directory) {
+        if (directory.exists()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        removeDirectory(file);
+                    } else {
+                        file.delete();
+                    }
+                }
+            }
+        }
+    }
+
+    public static void copyDirectory(File sourceDirectory, File destinationDirectory) {
+        if (!destinationDirectory.exists()) {
+            destinationDirectory.mkdir();
+        }
+
+        File[] files = sourceDirectory.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    File newDirectory = new File(destinationDirectory, file.getName());
+                    copyDirectory(file, newDirectory);
+                } else {
+                    Path sourcePath = file.toPath();
+                    Path destinationPath = new File(destinationDirectory, file.getName()).toPath();
+                    try {
+                        Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
     }
 }

@@ -6,7 +6,9 @@ import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ZeppPlayer {
     static boolean localZeppPlayer = false;
@@ -20,7 +22,7 @@ public class ZeppPlayer {
         else processBuilder = new ProcessBuilder("ZeppPlayer.exe", String.join(" ", processArgs));
 
         processBuilder.redirectErrorStream(true);
-        // processBuilder.inheritIO();
+        processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
         try {
             process = processBuilder.start();
@@ -31,9 +33,13 @@ public class ZeppPlayer {
         // reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
     }
 
-    public void stop() {
-        if (process.isAlive()) {
-            process.destroy();
+    public static void stopIfRunning() {
+        Logger.getInstance().info("Stopping zepp player");
+
+        try {
+            Runtime.getRuntime().exec("taskkill /f /im ZeppPlayer.exe");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -66,6 +72,16 @@ public class ZeppPlayer {
         localZeppPlayer = true;
     }
 
+    public static void copyProjectBuildToZeppPlayerPortable(String projectPath) {
+        String zeppPlayerPortableStoragePath = Constants.zeppPlayerCachingPath + "/projects/";
+        String projectBuildPath = projectPath + "/build/";
+
+        File directory = new File(zeppPlayerPortableStoragePath);
+        if (directory.exists()) FSHelper.clearDirectory(directory);
+
+        FSHelper.copyDirectory(new File(projectBuildPath), new File(zeppPlayerPortableStoragePath + Paths.get(projectPath).getFileName()));
+    }
+
     public static void zeppPlayerSelfCheck() {
         java.util.logging.Logger logger = Logger.getInstance();
 
@@ -78,10 +94,27 @@ public class ZeppPlayer {
         }
     }
 
-    public static ZeppPlayer runProject() {
-
+    public static ZeppPlayer runProject(String projectPath) {
+        ZeppPlayer.copyProjectBuildToZeppPlayerPortable(projectPath);
 
         ZeppPlayer zeppPlayer = new ZeppPlayer(new String[] {});
-        return null;
+
+        /*
+        try {
+            synchronized (zeppPlayer.process) {
+                zeppPlayer.process.waitFor();
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            zeppPlayer.process.waitFor();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        */
+
+
+        return zeppPlayer;
     }
 }

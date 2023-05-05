@@ -10,7 +10,8 @@ Actually ***Zepp Band7 OpenSDK*** is just a wrapper over [Zmake](https://melianm
 1. i [directory?] - INIT generate new project template inside this directory.
 2. b [directory?] - BUILD build your project. Result file will appear in dist directory.
 3. r [directory?] - RUN build your project and run built application in emulator.
-4. d [.bin file] - DECOMPILE unpack .bin of application into current directory.
+4. s - STOP Stopping already started emulation.
+5. [.bin file] - DECOMPILE unpack .bin of application into current directory.
 
 If `directory` parameter unspecified or specified incorrect, using `current working directory`. Be careful.
 ## Realisation progress
@@ -20,8 +21,8 @@ If `directory` parameter unspecified or specified incorrect, using `current work
  - [x] Project initiation
  - [x] Project compilation
  - [ ] Project preprocessing with ESBuild (with zmake)
- - [ ] Basic integration with zepp-player 
- - [ ] Project running in emulator
+ - [x] Basic integration with zepp-player 
+ - [x] Project running in emulator
 
 <a href="https://www.donationalerts.com/r/lavafrai">
 <p align="center">
