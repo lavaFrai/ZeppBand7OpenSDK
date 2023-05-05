@@ -9,16 +9,14 @@ import java.nio.file.Files;
 
 public class ZMake {
     static boolean localZMake = false;
-    private String[] processArgs;
     private final Process process;
     BufferedReader reader;
     OutputStream writer;
 
     ZMake(String[] processArgs) {
-        this.processArgs = processArgs;
 
         ProcessBuilder processBuilder;
-        if (localZMake) processBuilder = new ProcessBuilder(".cache/zmake", String.join(" ", processArgs));
+        if (localZMake) processBuilder = new ProcessBuilder(  Constants.zmakeCachingPath + "/zmake.exe", String.join(" ", processArgs));
         else processBuilder = new ProcessBuilder("zmake", String.join(" ", processArgs));
 
         processBuilder.redirectErrorStream(true);
@@ -36,7 +34,7 @@ public class ZMake {
     }
 
     static boolean isAvailableFromCache() {
-        ProcessBuilder pb = new ProcessBuilder(".cache/zmake.exe");
+        ProcessBuilder pb = new ProcessBuilder(Constants.zmakeCachingPath + "/zmake.exe");
         try {
             Process process = pb.start();
             process.destroy();
@@ -62,18 +60,30 @@ public class ZMake {
     }
 
     public static void downloadZMake() {
-        if (!new File("zmake.zip").exists()) FSHelper.downloadFile("https://raw.githubusercontent.com/lavaFrai/ZeppBand7OpenSDK/master/static/zmake.zip", "zmake.zip");
+        if (!new File("zmake.zip").exists()) FSHelper.downloadFile(Constants.zmakeDownloadPath, "zmake.zip");
 
         try (
                 ZipFile zipFile = new ZipFile("zmake.zip")
         ) {
-            zipFile.extractAll(".cache");
+            zipFile.extractAll(Constants.zmakeCachingPath);
             Files.deleteIfExists(new File("zmake.zip").toPath());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         localZMake = true;
+    }
+
+    public static void zmakeSelfCheck() {
+        java.util.logging.Logger logger = Logger.getInstance();
+
+        logger.info("Looking for zmake...");
+        if (!ZMake.isAvailable()) {
+            logger.warning("zmake undetected [ERROR]");
+            ZMake.downloadZMake();
+        } else {
+            logger.info("zmake detected [OK]");
+        }
     }
 
     public static void initProject(String projectPath) { // Project path must be empty!
@@ -91,7 +101,29 @@ public class ZMake {
             throw new RuntimeException(e);
         }
 
-        if (resultCode != 0) throw new RuntimeException("ZMake returns non zero non-zero code");
+        if (resultCode != 0) throw new RuntimeException("ZMake returns non zero non-zero code: " + resultCode);
+
+    }
+
+    public static void compileProject(String projectPath) {
+        if (!FSHelper.isDirectoryProject(projectPath)) {
+            Logger.getInstance().warning("Directory is not project: " + projectPath);
+            return;
+        }
+
+        ZMake session = openSession( new String[] {projectPath} );
+
+        int resultCode;
+
+        try {
+            synchronized (session.process) {
+                resultCode = session.process.waitFor();;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        if (resultCode != 0) throw new RuntimeException("ZMake returns non zero non-zero code: " + resultCode);
 
     }
 

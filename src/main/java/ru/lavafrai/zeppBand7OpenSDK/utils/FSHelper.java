@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 public class FSHelper {
     public static boolean isDirectoryEmpty(String path) {
@@ -37,7 +38,7 @@ public class FSHelper {
                     FileOutputStream fileOS = new FileOutputStream(targetPath);
                     CountingInputStream cis = new CountingInputStream(url.openStream());
             ) {
-                pb.setExtraMessage("Downloading...");
+                // pb.setExtraMessage("Downloading...");
 
                 new Thread(() -> {
                     try {
@@ -57,5 +58,16 @@ public class FSHelper {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static boolean isDirectoryProject(String path) {
+        File directory = new File(path);
+        if (directory.isDirectory()) {
+            String[] files = directory.list();
+            return Arrays.asList(files).contains("app.json");
+        } else {
+            throw new IllegalArgumentException("Путь не является директорией");
+        }
+
     }
 }

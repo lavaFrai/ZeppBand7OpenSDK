@@ -18,7 +18,7 @@ If `directory` parameter unspecified or specified incorrect, using `current work
  - [x] Auto download binaries
  - [x] Basic integration with ZMake
  - [x] Project initiation
- - [ ] Project compilation
+ - [x] Project compilation
  - [ ] Project preprocessing with ESBuild (with zmake)
  - [ ] Basic integration with zepp-player 
  - [ ] Project running in emulator
@@ -26,6 +26,6 @@ If `directory` parameter unspecified or specified incorrect, using `current work
 <a href="https://www.donationalerts.com/r/lavafrai">
 <p align="center">
 <br>
-<img src="https://github.com/appcraftstudio/buymeacoffee/raw/master/Images/snapshot-bmc-button.png" width="300">
+<img src="https://github.com/appcraftstudio/buymeacoffee/raw/master/Images/snapshot-bmc-button.png" width="300" alt="Buy me a coffee">
 </p>
 </a>

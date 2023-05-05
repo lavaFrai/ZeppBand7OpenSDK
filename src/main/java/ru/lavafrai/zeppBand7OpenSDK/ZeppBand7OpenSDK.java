@@ -5,6 +5,7 @@ import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
 import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class ZeppBand7OpenSDK {
     Target currentTarget;
@@ -21,7 +22,7 @@ public class ZeppBand7OpenSDK {
                 initProject(ArgsParser.getDirPath(args));
                 break;
             case BUILD:
-                buildProject("");
+                buildProject(ArgsParser.getDirPath(args));
                 break;
             case BUILD_AND_RUN:
                 buildProject("");
@@ -33,24 +34,24 @@ public class ZeppBand7OpenSDK {
     }
 
     private void decompileProject(String projectPath) {
+        logger.warning("Not ready yet [ERROR]");
     }
 
     private void runProject(String projectPath) {
+        logger.warning("Not ready yet [ERROR]");
 
     }
 
     private void buildProject(String projectPath) {
+        ZMake.zmakeSelfCheck();
 
+        ZMake.compileProject(projectPath);
+        logger.info("Project built in " + projectPath);
+        logger.info(".bin saved: " + projectPath + "\\dist\\" + Paths.get(projectPath).getFileName() + ".bin" );
     }
 
     private void initProject(String projectPath) {
-        logger.info("Looking for zmake...");
-        if (!ZMake.isAvailable()) {
-            logger.warning("zmake undetected [ERROR]");
-            ZMake.downloadZMake();
-        } else {
-            logger.info("zmake detected [OK]");
-        }
+        ZMake.zmakeSelfCheck();
 
         if (!FSHelper.isDirectoryEmpty(projectPath)) {
             logger.warning("Project directory must be empty! [ERROR]");
@@ -65,8 +66,8 @@ public class ZeppBand7OpenSDK {
         System.out.println("\n\nShowing help for ZeppBand7OpenSDK:");
         System.out.println("zb7o-sdk [target]\n");
         System.out.println("Targets:");
-        System.out.println("\ti [directory] - INIT generate new project template inside this directory.");
-        System.out.println("\tb [directory?] - (Not realized yet) BUILD build your project. Result file will appear in dist directory.");
+        System.out.println("\ti [directory?] - INIT generate new project template inside this directory.");
+        System.out.println("\tb [directory?] - BUILD build your project. Result file will appear in dist directory.");
         System.out.println("\tr [directory?] - (Not realized yet) RUN build your project and run built application in emulator.");
         System.out.println("\td [.bin file] - (Not realized yet) DECOMPILE unpack .bin of application into current directory.");
     }
