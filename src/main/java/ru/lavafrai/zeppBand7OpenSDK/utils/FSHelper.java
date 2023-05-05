@@ -34,7 +34,7 @@ public class FSHelper {
             long completeFileSize = httpConnection.getContentLength();
 
             try(
-                    ProgressBar pb = new ProgressBar("Download ZMake", Math.floorDiv(completeFileSize, 1000));
+                    ProgressBar pb = new ProgressBar("Downloading", Math.floorDiv(completeFileSize, 1000));
                     FileOutputStream fileOS = new FileOutputStream(targetPath);
                     CountingInputStream cis = new CountingInputStream(url.openStream());
             ) {

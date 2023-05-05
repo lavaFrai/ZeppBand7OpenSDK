@@ -60,7 +60,7 @@ public class ZMake {
     }
 
     public static void downloadZMake() {
-        if (!new File("zmake.zip").exists()) FSHelper.downloadFile(Constants.zmakeDownloadPath, "zmake.zip");
+        FSHelper.downloadFile(Constants.zmakeDownloadPath, "zmake.zip");
 
         try (
                 ZipFile zipFile = new ZipFile("zmake.zip")

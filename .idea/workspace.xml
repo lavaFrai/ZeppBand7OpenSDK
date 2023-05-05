@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="Auto downloading">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Constants.java" afterDir="false" />
+    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="Auto build">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java" afterDir="false" />
@@ -95,7 +95,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="ru.lavafrai.Main" />
       <module name="ZeppBand7OpenSDK.main" />
-      <option name="PROGRAM_PARAMETERS" value="b D:\PROJECTS\Band7\test" />
+      <option name="PROGRAM_PARAMETERS" value="r D:\PROJECTS\Band7\HelloWorld" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,7 +164,7 @@
       <updated>1683193941463</updated>
       <workItem from="1683193942863" duration="9161000" />
       <workItem from="1683222751480" duration="10527000" />
-      <workItem from="1683299025352" duration="4179000" />
+      <workItem from="1683299025352" duration="6711000" />
     </task>
     <task id="LOCAL-00001" summary="MVP">
       <created>1683203276092</created>
@@ -208,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683241593563</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Auto build">
+      <created>1683303257487</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683303257487</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +239,18 @@
     <MESSAGE value="Readme update" />
     <MESSAGE value="ZMake static" />
     <MESSAGE value="Auto downloading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auto downloading" />
+    <MESSAGE value="Auto build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auto build" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/FSHelper.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

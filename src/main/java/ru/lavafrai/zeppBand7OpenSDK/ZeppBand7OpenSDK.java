@@ -4,7 +4,6 @@ import ru.lavafrai.zeppBand7OpenSDK.utils.ArgsParser;
 import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
 import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 
 public class ZeppBand7OpenSDK {
@@ -25,8 +24,8 @@ public class ZeppBand7OpenSDK {
                 buildProject(ArgsParser.getDirPath(args));
                 break;
             case BUILD_AND_RUN:
-                buildProject("");
-                runProject("");
+                buildProject(ArgsParser.getDirPath(args));
+                runProject(ArgsParser.getDirPath(args));
                 break;
             case DECOMPILE:
                 decompileProject("");
@@ -38,7 +37,7 @@ public class ZeppBand7OpenSDK {
     }
 
     private void runProject(String projectPath) {
-        logger.warning("Not ready yet [ERROR]");
+        ZeppPlayer.zeppPlayerSelfCheck();
 
     }
 
