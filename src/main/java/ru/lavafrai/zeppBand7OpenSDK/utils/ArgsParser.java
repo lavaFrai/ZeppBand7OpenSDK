@@ -32,6 +32,10 @@ public class ArgsParser {
             case "d":
                 Logger.getInstance().info("DETECTED TARGET DECOMPILE");
                 return Target.DECOMPILE;
+            case "z":
+            case "zpk":
+                Logger.getInstance().info("DETECTED TARGET ZPK");
+                return Target.ZPK;
             case "h":
             case "help":
             case "--help":

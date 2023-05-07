@@ -9,9 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="ZeppPlayer integration">
+    <list default="true" id="c6b630a9-4aad-44b7-9f32-47304b2c6376" name="Changes" comment="Readme update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/AppJsonParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZMake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/ZeppBand7OpenSDK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/ArgsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/lavafrai/zeppBand7OpenSDK/utils/ArgsParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +90,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Run">
+  <component name="RunManager" selected="Application.Zpk">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -100,6 +105,14 @@
       <option name="MAIN_CLASS_NAME" value="ru.lavafrai.Main" />
       <module name="ZeppBand7OpenSDK.main" />
       <option name="PROGRAM_PARAMETERS" value="stop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zpk" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.lavafrai.Main" />
+      <module name="ZeppBand7OpenSDK.main" />
+      <option name="PROGRAM_PARAMETERS" value="z D:\PROJECTS\Band7\HelloWorld" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,6 +161,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run" />
+      <item itemvalue="Application.Zpk" />
       <item itemvalue="Application.Stop" />
       <item itemvalue="Gradle.ZeppBand7OpenSDK [build]" />
       <item itemvalue="Gradle.ZeppBand7OpenSDK [jar]" />
@@ -170,7 +184,8 @@
       <workItem from="1683193942863" duration="9161000" />
       <workItem from="1683222751480" duration="10527000" />
       <workItem from="1683299025352" duration="13797000" />
-      <workItem from="1683315223914" duration="916000" />
+      <workItem from="1683315223914" duration="1169000" />
+      <workItem from="1683455507227" duration="5537000" />
     </task>
     <task id="LOCAL-00001" summary="MVP">
       <created>1683203276092</created>
@@ -242,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683313098400</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Readme update">
+      <created>1683316189295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683316189295</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,12 +285,12 @@
     <MESSAGE value="MVP" />
     <MESSAGE value="Readme mistake fix" />
     <MESSAGE value="Project initiation" />
-    <MESSAGE value="Readme update" />
     <MESSAGE value="ZMake static" />
     <MESSAGE value="Auto downloading" />
     <MESSAGE value="Auto build" />
     <MESSAGE value="ZeppPlayer binaries uploaded" />
     <MESSAGE value="ZeppPlayer integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="ZeppPlayer integration" />
+    <MESSAGE value="Readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme update" />
   </component>
 </project>

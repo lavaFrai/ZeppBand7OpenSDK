@@ -1,10 +1,16 @@
 package ru.lavafrai.zeppBand7OpenSDK;
 
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import ru.lavafrai.zeppBand7OpenSDK.utils.AppJsonParser;
 import ru.lavafrai.zeppBand7OpenSDK.utils.ArgsParser;
 import ru.lavafrai.zeppBand7OpenSDK.utils.FSHelper;
 import ru.lavafrai.zeppBand7OpenSDK.utils.Logger;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class ZeppBand7OpenSDK {
     Target currentTarget;
@@ -31,6 +37,10 @@ public class ZeppBand7OpenSDK {
             case STOP:
                 ZeppPlayer.stopIfRunning();
                 break;
+            case ZPK:
+                buildProject(ArgsParser.getDirPath(args));
+                genZPK(ArgsParser.getDirPath(args));
+                break;
             case DECOMPILE:
                 decompileProject("");
         }
@@ -52,6 +62,46 @@ public class ZeppBand7OpenSDK {
         ZMake.compileProject(projectPath);
         logger.info("Project built in " + projectPath);
         logger.info(".bin saved: " + projectPath + "\\dist\\" + Paths.get(projectPath).getFileName() + ".bin" );
+    }
+
+    private void genZPK(String projectPath) {
+        AppJsonParser app = new AppJsonParser(projectPath);
+        app.saveAppSideJson(projectPath);
+
+
+        FSHelper.copyDirectory(new File(projectPath + "/app-side"), new File(projectPath + "/zpk/app-side"));
+        FSHelper.copyDirectory(new File(projectPath + "/build"), new File(projectPath + "/zpk/device"));
+
+        try {
+            new File(projectPath + "/zpk/app-side.zip").deleteOnExit();
+            new File(projectPath + "/zpk/device.zip").deleteOnExit();
+
+            dirToZip(new File(projectPath + "/zpk/app-side"), projectPath + "/zpk/app-side.zip");
+            dirToZip(new File(projectPath + "/zpk/device"), projectPath + "/zpk/device.zip");
+
+            ZipFile zipFile = new ZipFile(projectPath + "/dist/" + Paths.get(projectPath).getFileName() + ".zpk");
+            zipFile.addFile(projectPath + "/zpk/app-side.zip");
+            zipFile.addFile(projectPath + "/zpk/device.zip");
+            zipFile.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void dirToZip(File dir, String _zip) throws IOException {
+        ZipFile zip = new ZipFile(_zip);
+        Arrays.asList(dir.listFiles()).forEach((e) -> {
+            try {
+                if (e.isDirectory()) {
+                    zip.addFolder(e);
+                } else {
+                    zip.addFile(e);
+                }
+            } catch (ZipException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        zip.close();
     }
 
     private void initProject(String projectPath) {

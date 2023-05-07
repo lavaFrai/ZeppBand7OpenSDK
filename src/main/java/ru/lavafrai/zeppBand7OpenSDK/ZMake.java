@@ -98,6 +98,8 @@ public class ZMake {
             synchronized (session.process) {
                 resultCode = session.process.waitFor();;
             }
+
+            new File(projectPath + "/app-side").mkdir();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
